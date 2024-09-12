@@ -17,7 +17,7 @@ def write_chat_log(messages):
     if not os.path.exists(log_filename):
         initialize_log_file()
     
-    with open(log_filename, 'a') as file:
+    with open(log_filename, 'a', encoding='utf-8') as file:
         for message in messages:
             if message not in logged_messages:
                 if message['role'] in ['user', 'assistant']:
