@@ -17,7 +17,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install fastapi uvicorn requests pytest httpx
+        pip install fastapi uvicorn requests pytest httpx jinja2
 
     - name: Run tests
       run: |
