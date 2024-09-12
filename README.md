@@ -1,4 +1,4 @@
-# Schizo-Bots
+# Schizo-Bots [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip)
 
 This web app pushes the limits of LM Studio's API, using creative workarounds to create an autonomous chat simulation between two bots. Expect bugs as it is still under development.
 
@@ -8,7 +8,7 @@ This web app pushes the limits of LM Studio's API, using creative workarounds to
 Python and LM Studio
 
 ## Installation
-1. Clone or the repository. [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip)
+1. Clone or the repository.
 ```bash
 git clone https://github.com/Melyns/Schizo-Bots/
 ```
