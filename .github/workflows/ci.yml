@@ -26,9 +26,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Verify working directory and list files
+      run: |
+        echo Current directory: %cd%
+        dir
+
     - name: Run project via .bat file
       run: |
-        cmd /c .\run_project.bat
+        cmd /c ".\run_project.bat"
 
     - name: Run tests
       run: |
