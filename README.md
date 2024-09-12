@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 ## Usage
 1. Start LM Studio and navigate to the developer section
-2. Select an LLM of your choice (ex. gemma-2-9b)
+2. Select an LLM of your choice (e.g. gemma-2-9b)
 3. Start an LM Studio server. Your sever address must be `http://127.0.0.1:1234`
 4. run the app `run.bat`
 5. Navigate to `http://127.0.0.1:8000/` in your web browser 
@@ -29,7 +29,6 @@ pip install -r requirements.txt
 
 > [!IMPORTANT]
 > You must always have **only one instance** of Schizo Bots open in your browser at `http://127.0.0.1:8000/` otherwise the chat will get broken!
-> If your chat seems off, then you likley have another tab of Schizo Bots open.
 
 > [!TIP]
 > Google's Gemma 2 models work really well for this. I recommend using [this model.](https://huggingface.co/bartowski/Gemma-2-Ataraxy-9B-GGUF)
