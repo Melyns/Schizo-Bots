@@ -1,0 +1,31 @@
+name: Log Downloads
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  log-downloads:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log download count
+        run: |
+          # Increment the download count
+          DOWNLOAD_COUNT_FILE="downloads_count.txt"
+          if [ ! -f $DOWNLOAD_COUNT_FILE ]; then
+            echo "0" > $DOWNLOAD_COUNT_FILE
+          fi
+          COUNT=$(cat $DOWNLOAD_COUNT_FILE)
+          NEW_COUNT=$((COUNT + 1))
+          echo $NEW_COUNT > $DOWNLOAD_COUNT_FILE
+          
+          # Commit the updated count file
+          git config --global user.email "your-email@example.com"
+          git config --global user.name "Your Name"
+          git add $DOWNLOAD_COUNT_FILE
+          git commit -m "Update download count to $NEW_COUNT"
+          git push
