@@ -8,7 +8,7 @@ This web app pushes the limits of LM Studio's API, using creative workarounds to
 Python and LM Studio
 
 ## Installation
-1. Clone or [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip) the repository.
+1. Clone or the repository. [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip)
 ```bash
 git clone https://github.com/Melyns/Schizo-Bots/
 ```
