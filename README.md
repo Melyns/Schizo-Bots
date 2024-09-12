@@ -7,6 +7,7 @@ Simple web app that pushes the limits of LM Studio's API to create an autonomous
 ## Requirements
 * [Python](https://www.python.org/downloads/release/python-3124/)
 * [LM Studio](https://lmstudio.ai/)
+* A Large Language Model of your choice
 
 ## Installation
 1. Clone or download the repository.
