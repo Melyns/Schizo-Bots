@@ -1,5 +1,6 @@
 const conversationDiv = document.getElementById('conversation');
 const pauseButton = document.getElementById('pause-button');
+const newChatButton = document.getElementById('new-chat-button');
 let autoScroll = true;
 const md = window.markdownit({ html: true });
 let currentPersonality = 'bot1';
@@ -36,6 +37,9 @@ async function togglePause() {
     paused = !paused;
     await fetch('/pause', { method: 'POST' });
     if (paused) {
+        if (eventSource) {
+            eventSource.close();
+        }
         pauseButton.textContent = 'Resume';
         pauseButton.classList.add('resume');
         pauseButton.classList.remove('paused');
@@ -43,7 +47,15 @@ async function togglePause() {
         pauseButton.textContent = 'Pause';
         pauseButton.classList.remove('resume');
         pauseButton.classList.add('paused');
+        restartEventSource();
     }
+}
+
+function restartEventSource() {
+    if (eventSource) {
+        eventSource.close();
+    }
+    createEventSource();
 }
 
 document.addEventListener('keydown', function(event) {
@@ -68,15 +80,6 @@ window.addEventListener('beforeunload', function() {
     }
 });
 
-const newChatButton = document.getElementById('new-chat-button');
-
-function restartEventSource() {
-    if (eventSource) {
-        eventSource.close();
-    }
-    createEventSource();
-}
-
 newChatButton.addEventListener('click', function() {
     fetch('/new-chat', { method: 'POST' })
         .then(response => response.json())
@@ -87,6 +90,8 @@ newChatButton.addEventListener('click', function() {
                     conversationDiv.scrollTop = conversationDiv.scrollHeight;
                 }
                 restartEventSource();
+            } else if (data.status === 'paused') {
+                alert(data.error);
             }
         })
         .catch(error => console.error('Error:', error));

@@ -7,6 +7,8 @@ import json
 import requests
 import configparser
 import asyncio
+from datetime import datetime
+from logger import write_chat_log, reset_log, initialize_log_file
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -34,6 +36,8 @@ INITIAL_MESSAGES = [
 message_history = list(INITIAL_MESSAGES)
 current_personality = BOT1_NAME
 paused = False
+
+initialize_log_file()
 
 def chat_with_bot(messages):
     data = {
@@ -109,19 +113,31 @@ async def events():
                 num_words = len(response.split())
                 delay = num_words / WPM * 60
 
+                write_chat_log(message_history)
+
                 yield f"data: {response_html}\n\n"
                 await asyncio.sleep(delay)
             else:
                 await asyncio.sleep(1)
+            if paused:
+                continue
 
     return StreamingResponse(event_generator(), media_type='text/event-stream')
 
 @app.post("/new-chat")
 async def new_chat():
     global message_history, current_personality, paused
+
+    if paused:
+        return {"status": "paused", "error": "Cannot start new chat while paused, please press the Resume button."}
+
+    reset_log()
+    initialize_log_file()
+    
     message_history = list(INITIAL_MESSAGES)
     current_personality = BOT1_NAME
     paused = False
+
     print("New chat started")
     return {"status": "new chat started"}
 
