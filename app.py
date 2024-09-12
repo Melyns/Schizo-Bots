@@ -129,7 +129,7 @@ async def new_chat():
     global message_history, current_personality, paused
 
     if paused:
-        return {"status": "paused", "error": "Cannot start new chat while paused, please press the Resume button."}
+        return {"status": "paused", "error": "Cannot start a new chat while paused, please press the Resume button and try again."}
 
     reset_log()
     initialize_log_file()
