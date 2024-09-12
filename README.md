@@ -12,7 +12,7 @@ Python and LM Studio
 ```bash
 git clone https://github.com/Melyns/Schizo-Bots/
 ```
-3. Install requirements
+2. Install requirements
 ```bash
 pip install -r requirements.txt
 ```
@@ -20,12 +20,16 @@ pip install -r requirements.txt
 ## Usage
 1. Start LM Studio and navigate to the developer section
 2. Select an LLM of your choice (ex. gemma-2-9b)
-3. Start a LM Studio server. Your sever address must be `http://127.0.0.1:1234`
+3. Start an LM Studio server. Your sever address must be `http://127.0.0.1:1234`
 4. run the app `run.bat`
 5. Navigate to `http://127.0.0.1:8000/` in your web browser 
 6. Enjoy watching two bots have a schizo chat
+
 > [!IMPORTANT]
-> You must *always* keep one browser window open at `http://127.0.0.1:8000/` otherwise the chat will get messed up!
+> You must *always* have one instance of Schizo Bots open in your browser at `http://127.0.0.1:8000/` otherwise the chat will get broken! If your chat seems off, then you likley have another tab of Schizo Bots open.
+
+> [!TIP]
+> Google's Gemma 2 models work extremely well for this. I recommend using [this](https://huggingface.co/bartowski/Gemma-2-Ataraxy-9B-GGUF)
 
 ## Customization 
 You can change `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
