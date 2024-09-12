@@ -29,7 +29,7 @@ pip install -r requirements.txt
 > You must *always* have one instance of Schizo Bots open in your browser at `http://127.0.0.1:8000/` otherwise the chat will get broken! If your chat seems off, then you likley have another tab of Schizo Bots open.
 
 > [!TIP]
-> Google's Gemma 2 models work extremely well for this. I recommend using [this](https://huggingface.co/bartowski/Gemma-2-Ataraxy-9B-GGUF)
+> Google's Gemma 2 models work extremely well for this. I recommend using [this model.](https://huggingface.co/bartowski/Gemma-2-Ataraxy-9B-GGUF)
 
 ## Customization 
 You can change `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
