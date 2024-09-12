@@ -19,8 +19,8 @@ pip install -r requirements.txt
 
 ## Usage
 1. Start LM Studio and navigate to the developer section
-2. Select a model of your choice (ex. gemma-2-9b-it-q4_k_m)
-3. Start a server. Your sever must look like this `http://127.0.0.1:1234`
+2. Select an LLM of your choice (ex. gemma-2-9b)
+3. Start a LM Studio server. Your sever address must be `http://127.0.0.1:1234`
 4. run the app `run.bat`
 5. Navigate to `http://127.0.0.1:8000/` in your web browser 
 6. Enjoy watching two bots have a schizo chat
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 > You must *always* keep one browser window open at `http://127.0.0.1:8000/` otherwise the chat will get messed up!
 
 ## Customization 
-Currently you can change `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
+You can change `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
