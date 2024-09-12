@@ -31,7 +31,7 @@ INITIAL_MESSAGES = [
      "content": config['initial_messages']['message2_content'].format(bot2_name=BOT2_NAME)}
 ]
 
-message_history = INITIAL_MESSAGES
+message_history = list(INITIAL_MESSAGES)
 current_personality = BOT1_NAME
 paused = False
 
@@ -115,6 +115,15 @@ async def events():
                 await asyncio.sleep(1)
 
     return StreamingResponse(event_generator(), media_type='text/event-stream')
+
+@app.post("/new-chat")
+async def new_chat():
+    global message_history, current_personality, paused
+    message_history = list(INITIAL_MESSAGES)
+    current_personality = BOT1_NAME
+    paused = False
+    print("New chat started")
+    return {"status": "new chat started"}
 
 @app.post("/pause")
 async def pause():

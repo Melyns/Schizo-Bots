@@ -12,26 +12,24 @@ body {
     line-height: 1.5;
 }
 
-.container {
+#pillars {
+    display: flex;
     width: 90%;
     max-width: 800px;
     height: calc(100vh - 40px);
-    padding: 20px;
-    background: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
+    border-left: 5px solid #333;
+    border-right: 5px solid #333;
 }
 
 #conversation {
     flex: 1;
     overflow-y: auto;
-    padding: 10px;
+    padding: 20px;
     background-color: #121212;
     border-radius: 4px;
     box-shadow: inset 0 1px 6px rgb(0 0 0 / 69%);
     scroll-behavior: smooth;
+    min-width: 300px;
 }
 
 #conversation::-webkit-scrollbar {
@@ -69,6 +67,10 @@ body {
     box-shadow: 6px 6px 10px -8px black;
 }
 
+.bot1 p, .bot2 p {
+    margin: 0;
+}
+
 .pause-button {
     padding: 10px 20px;
     border: none;
@@ -80,6 +82,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 1;
     box-shadow: 4px 4px 10px -5px black;
 }
 
@@ -95,12 +98,21 @@ body {
     background-color: #43a047;
 }
 
-.bot1 p, .bot2 p {
-    margin: 0; 
-    padding: 0; 
+.new-chat-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 2;
+    box-shadow: 4px 4px 10px -5px black;
 }
 
-.bot1 h1, .bot2 h1,
-.bot1 h2, .bot2 h2 {
-    margin-top: 0;
+.new-chat-button:hover {
+    background-color: #0056b3;
 }
