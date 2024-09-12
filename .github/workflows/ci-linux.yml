@@ -1,28 +1,29 @@
-import sys
-import os
+name: CI
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+on: [push, pull_request]
 
-from fastapi.testclient import TestClient
-from app import app
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
-client = TestClient(app)
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-def test_index():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert "Welcome" in response.text
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.10'
 
-def test_new_chat():
-    response = client.post("/new-chat")
-    assert response.status_code == 200
-    assert response.json() == {"status": "new chat started"}
+    - name: Install dependencies
+      run: |
+        pip install fastapi uvicorn requests pytest httpx
 
-def test_pause():
-    response = client.post("/pause")
-    assert response.status_code == 200
-    assert response.json()["paused"] is True
+    - name: Run tests
+      run: |
+        pytest --maxfail=1 --disable-warnings -q
 
-    response = client.post("/pause")
-    assert response.status_code == 200
-    assert response.json()["paused"] is False
+    - name: Lint code
+      run: |
+        pip install pylint
+        pylint app.py
