@@ -28,7 +28,7 @@ jobs:
 
     - name: Run project via .bat file
       run: |
-        .\run_project.bat
+        cmd /c .\run_project.bat
 
     - name: Run tests
       run: |
