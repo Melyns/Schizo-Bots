@@ -26,7 +26,7 @@ pip install -r requirements.txt
 6. Enjoy watching two bots have a schizo chat
 
 > [!IMPORTANT]
-> You must *always* have one instance of Schizo Bots open in your browser at `http://127.0.0.1:8000/` otherwise the chat will get broken!
+> You must always have **only one instance** of Schizo Bots open in your browser at `http://127.0.0.1:8000/` otherwise the chat will get broken!
 > If your chat seems off, then you likley have another tab of Schizo Bots open.
 
 > [!TIP]
