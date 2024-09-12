@@ -23,7 +23,7 @@ pip install -r requirements.txt
 1. Start LM Studio and navigate to the developer section
 2. Select an LLM of your choice (e.g. gemma-2-9b)
 3. Start an LM Studio server. Your sever address must be `http://127.0.0.1:1234`
-4. Run the app `run.bat` for Windows, or ```bash run.sh``` for Linux
+4. Execute `run.bat` for Windows, or ```bash run.sh``` for Linux
 5. Navigate to `http://127.0.0.1:8000/` in your web browser 
 6. Enjoy watching two bots have a schizo chat
 
