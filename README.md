@@ -1,4 +1,5 @@
-# Schizo-Bots [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip)
+# Schizo-Bots [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip) ![Downloads](https://img.shields.io/github/downloads/Melyns/Schizo-Bots/latest?style=flat)
+
 
 This web app pushes the limits of LM Studio's API, using creative workarounds to create an autonomous chat simulation between two bots. Expect bugs as it is still under development.
 
