@@ -33,7 +33,7 @@ pip install -r requirements.txt
 > Google's Gemma 2 models work really well for this. I recommend using [this model.](https://huggingface.co/bartowski/Gemma-2-Ataraxy-9B-GGUF)
 
 ## Customization 
-You can change `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
+You can edit `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
