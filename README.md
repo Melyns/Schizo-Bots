@@ -5,7 +5,8 @@ Simple web app that pushes the limits of LM Studio's API to create an autonomous
 ![image](https://github.com/user-attachments/assets/70b5f9f0-7fee-4c02-98f4-436e3e2ae265)
 
 ## Requirements
-Python and LM Studio
+* [Python](https://www.python.org/downloads/release/python-3124/)
+* [LM Studio](https://lmstudio.ai/)
 
 ## Installation
 1. Clone or download the repository.
