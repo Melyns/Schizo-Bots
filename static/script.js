@@ -1,27 +1,28 @@
 const conversationDiv = document.getElementById('conversation');
 const pauseButton = document.getElementById('pause-button');
-
 let autoScroll = true;
 const md = window.markdownit();
 let currentPersonality = 'bot1';
+let paused = false;
+let eventSource = null;
 
 function createEventSource() {
-    const eventSource = new EventSource('/events');
+    eventSource = new EventSource('/events');
     eventSource.onmessage = function(event) {
-        const message = event.data.trim();
-        if (message) {
-           
-            const botClass = currentPersonality;
+        if (!paused) {
+            const message = event.data ? event.data.trim() : '';
+            if (message) {
+                const botClass = currentPersonality;
+                const messageDiv = document.createElement('div');
+                messageDiv.className = botClass;
+                messageDiv.innerHTML = message;  // Directly use HTML content
+                conversationDiv.appendChild(messageDiv);
 
-           
-            const formattedMessage = md.render(message);
-            const styledMessage = `<div class="${botClass}">${formattedMessage}</div>`;
-            conversationDiv.innerHTML += styledMessage;
+                currentPersonality = (currentPersonality === 'bot1') ? 'bot2' : 'bot1';
 
-            currentPersonality = (currentPersonality === 'bot1') ? 'bot2' : 'bot1';
-
-            if (autoScroll) {
-                conversationDiv.scrollTop = conversationDiv.scrollHeight;
+                if (autoScroll) {
+                    conversationDiv.scrollTop = conversationDiv.scrollHeight;
+                }
             }
         }
     };
@@ -30,21 +31,18 @@ function createEventSource() {
     };
 }
 
-function togglePause() {
-    fetch('/pause', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.paused) {
-            pauseButton.classList.add('visible');
-            pauseButton.textContent = 'Paused';
-        } else {
-            pauseButton.classList.remove('visible');
-            pauseButton.textContent = 'Pause';
-        }
-    });
+async function togglePause() {
+    paused = !paused;
+    await fetch('/pause', { method: 'POST' });
+    if (paused) {
+        pauseButton.textContent = 'Resume';
+        pauseButton.classList.add('resume');
+        pauseButton.classList.remove('paused');
+    } else {
+        pauseButton.textContent = 'Pause';
+        pauseButton.classList.remove('resume');
+        pauseButton.classList.add('paused');
+    }
 }
 
 document.addEventListener('keydown', function(event) {
@@ -62,3 +60,9 @@ conversationDiv.addEventListener('scroll', function() {
 });
 
 createEventSource();
+
+window.addEventListener('beforeunload', function() {
+    if (eventSource) {
+        eventSource.close();
+    }
+});

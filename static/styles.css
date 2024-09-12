@@ -31,7 +31,7 @@ body {
     background-color: #121212;
     border-radius: 4px;
     box-shadow: inset 0 1px 6px rgb(0 0 0 / 69%);
-    scroll-behavior: smooth; /* smooth scrolling */
+    scroll-behavior: smooth;
 }
 
 #conversation::-webkit-scrollbar {
@@ -70,7 +70,6 @@ body {
 }
 
 .pause-button {
-    display: none;
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -88,9 +87,17 @@ body {
     background-color: #a32a2a;
 }
 
+.pause-button.resume {
+    background-color: #4CAF50;
+}
+
+.pause-button.resume:hover {
+    background-color: #43a047;
+}
+
 .bot1 p, .bot2 p {
     margin: 0; 
-    padding: 0;
+    padding: 0; 
 }
 
 .bot1 h1, .bot2 h1,

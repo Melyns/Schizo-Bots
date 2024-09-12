@@ -1,22 +1,19 @@
-import requests
-import json
-import time
-import configparser
-import asyncio
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import os
+import json
+import requests
+import configparser
+import asyncio
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 config = configparser.ConfigParser()
-config_path = os.path.join(os.getcwd(), 'config.ini')
-config.read(config_path)
+config.read(os.path.join(os.getcwd(), 'config.ini'))
 
 API_URL = config['api']['url']
 MODEL = config['model']['name']
@@ -24,7 +21,6 @@ TEMPERATURE = float(config['conversation']['temperature'])
 MAX_TOKENS = int(config['conversation']['max_tokens']) if config['conversation']['max_tokens'].isdigit() else None
 STREAM = config.getboolean('conversation', 'stream')
 WPM = int(config['conversation']['wpm'])
-
 BOT1_NAME = config['personalities']['bot1_name']
 BOT2_NAME = config['personalities']['bot2_name']
 
@@ -54,9 +50,7 @@ def chat_with_bot(messages):
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "content": {
-                            "type": "string"
-                        }
+                        "content": {"type": "string"}
                     },
                     "required": ["content"]
                 }
@@ -106,6 +100,8 @@ async def events():
                 message_history.append({"role": "user", "content": user_message, "sender": current_personality})
 
                 response = chat_with_bot(message_history)
+                response_html = response.replace("\n", "<br>")
+
                 message_history.append({"role": "assistant", "content": response, "sender": current_personality})
 
                 current_personality = BOT2_NAME if current_personality == BOT1_NAME else BOT1_NAME
@@ -113,8 +109,8 @@ async def events():
                 num_words = len(response.split())
                 delay = num_words / WPM * 60
 
-                yield f"data: {response}\n\n"
-                await asyncio.sleep(delay) 
+                yield f"data: {response_html}\n\n"
+                await asyncio.sleep(delay)
             else:
                 await asyncio.sleep(1)
 
