@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     font-size: 24px;
-    line-height: 1.5;
+    line-height: 1.51;
 }
 
 #pillars {
@@ -24,7 +24,7 @@ body {
 #conversation {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
+    padding: 25px;
     background-color: #121212;
     border-radius: 4px;
     box-shadow: inset 0 1px 6px rgb(0 0 0 / 77%);
@@ -48,8 +48,8 @@ body {
 .bot1, .bot2 {
     display: flex;
     align-items: flex-start;
-    padding: 12px 15px;
-    margin-bottom: 10px;
+    padding: 13px 15px;
+    margin-bottom: 15px;
     border-radius: 12px;
     border-left: 7px solid;
     word-wrap: break-word;
