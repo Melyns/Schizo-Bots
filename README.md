@@ -2,7 +2,8 @@
 
 Create an autonomous chat simulation between two bots. Expect bugs as it is still under development.
 
-![image](https://github.com/user-attachments/assets/70b5f9f0-7fee-4c02-98f4-436e3e2ae265)
+![Screenshot 2024-09-12 090929](https://github.com/user-attachments/assets/486f6447-1424-4587-b37d-3d3b85867d2f)
+
 
 ## Requirements
 * [Python](https://www.python.org/downloads/release/python-3124/)
