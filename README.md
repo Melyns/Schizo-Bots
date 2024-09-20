@@ -38,4 +38,4 @@ pip install -r requirements.txt
 You can edit `config.ini` to customize the name of the bots, thier personality, sampler parameters, and the API address. 
 
 ## License
-This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE).
