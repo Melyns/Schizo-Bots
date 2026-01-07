@@ -1,6 +1,6 @@
 # Schizo-Bots [![Download](https://img.shields.io/badge/Download-Schizo--Bots-brightgreen)](https://github.com/Melyns/Schizo-Bots/archive/refs/heads/main.zip)
 
-Create an autonomous chat simulation between two bots. Expect bugs as it is still under development.
+Create an autonomous chat simulation between two bots.
 
 ![Screenshot 2024-09-12 090929](https://github.com/user-attachments/assets/486f6447-1424-4587-b37d-3d3b85867d2f)
 
